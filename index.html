@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Pierda, Papel y Tijera</title>
+</head>
+<body>
+   <h1>Elije: piedra, papel o tijera</h1> 
+   <img src="./img/piedra.jpg" alt="Piedra" id="piedra" onclick="jugar('piedra')">
+   <img src="./img/papel.jpg" alt="Papel" id="papel" onclick="jugar('papel')">
+   <img src="./img/tijera.jpg" alt="Tijera" id="tijera" onclick="jugar('tijera')">
+   <script>
+       let piedra = document.getElementById("piedra")
+       let papel = document.getElementById("papel")
+       let tijera = document.getElementById("tijera")
+
+       function jugar(opcionUsuario){
+        let opcionesMaquina = ["piedra", "papel", "tijera"]
+        let numeroAleatorio = Math.floor(Math.random()*3) // genera un numero aleatorio entre 0 y 1, lo multiplicamos por 3 para obtener un numero entre 0 y 3, y le recortamos los decimales
+        let opcionMaquina = opcionesMaquina[numeroAleatorio] // se posiciona en el lugar correspondiente al indice del numero obtenido en aleatorio
+        
+        if(opcionUsuario == opcionMaquina){
+            alert("A sido un empate \n Usuario:" + opcionUsuario + "Maquina: " + opcionMaquina)
+        } else if(opcionUsuario == "piedra" && opcionMaquina == "tijera" || opcionUsuario == "papel" && opcionMaquina == "piedra" || opcionUsuario == "tijera" && opcionMaquina == "papel" ){
+            alert("Haz Ganado!! \n usuario:" + opcionUsuario + "Maquina: " + opcionMaquina)
+        } else {
+            alert("Haz Perdido, Gana la Maquina \n usuario:" + opcionUsuario + "Maquina: " + opcionMaquina)
+        }
+       }
+   </script>
+</body>
+</html>
